@@ -1,0 +1,56 @@
+﻿@model GMM.Data.Begeleiding
+
+@{
+    ViewData["Title"] = "Aanpassen van begeleider";
+}
+
+<h1>Aanpassen van entourage of begeleider</h1>
+
+<h4>Entourage of begeleider</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="BoekingId" class="control-label"></label>
+                <select asp-for="BoekingId" class="form-control" asp-items="ViewBag.BoekingId"></select>
+                <span asp-validation-for="BoekingId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Omschrijving" class="control-label"></label>
+                <input asp-for="Omschrijving" class="form-control" />
+                <span asp-validation-for="Omschrijving" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FunctieId" class="control-label"></label>
+                <select asp-for="FunctieId" class="form-control" asp-items="ViewBag.FunctieId"></select>
+                <span asp-validation-for="FunctieId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gsm" class="control-label"></label>
+                <input asp-for="Gsm" class="form-control" />
+                <span asp-validation-for="Gsm" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="WalkieTalkie" /> @Html.DisplayNameFor(model => model.WalkieTalkie)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Opslaan" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"><img src="~/pics/return.png" /></a>
+</div>
+

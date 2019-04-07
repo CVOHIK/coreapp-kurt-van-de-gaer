@@ -1,0 +1,88 @@
+﻿@model IEnumerable<GMM.Data.Boeking>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="Index">
+    <div class="row">
+        <div class="col-9">
+            <h1>Festival programma</h1>
+        </div>
+        <div class="col-3">
+            <div class="input-group">
+                <input type="date" class="form-control" name="festivalDate" value="@ViewBag.festivalDate" />
+                <input type="submit" value="Zoek" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Datum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BeginUur)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.EindUur)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.KleedkamerBeginUur)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.KleedkamerEindUur)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.Band)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Podium)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Tent)
+                    </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Datum.ToString("dd/MM/yyyy"))*@
+                        @item.Datum.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BeginUur)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.EindUur)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.KleedkamerBeginUur)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.KleedkamerEindUur)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Band.Omschrijving)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Podium.Omschrijving)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Tent.Id)
+                        </td>*@
+                    <td>
+                        @*<a asp-action="Edit" asp-route-id="@item.Id"><img src="~/pics/edit.png" /></a> |*@
+                        <a asp-action="Details" asp-route-id="@item.Id"><img src="~/pics/search.png" /></a> @*|*@
+                        @*<a asp-action="Delete" asp-route-id="@item.Id"><img src="~/pics/delete.png" /></a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

@@ -1,0 +1,9 @@
+C:\Users\Kurt\source\repos\HIK\GMM.Data\bin\Debug\netcoreapp2.2\GMM.Data.deps.json
+C:\Users\Kurt\source\repos\HIK\GMM.Data\bin\Debug\netcoreapp2.2\GMM.Data.dll
+C:\Users\Kurt\source\repos\HIK\GMM.Data\bin\Debug\netcoreapp2.2\GMM.Data.pdb
+C:\Users\Kurt\source\repos\HIK\GMM.Data\obj\Debug\netcoreapp2.2\GMM.Data.csproj.CoreCompileInputs.cache
+C:\Users\Kurt\source\repos\HIK\GMM.Data\obj\Debug\netcoreapp2.2\GMM.Data.AssemblyInfoInputs.cache
+C:\Users\Kurt\source\repos\HIK\GMM.Data\obj\Debug\netcoreapp2.2\GMM.Data.AssemblyInfo.cs
+C:\Users\Kurt\source\repos\HIK\GMM.Data\obj\Debug\netcoreapp2.2\GMM.Data.dll
+C:\Users\Kurt\source\repos\HIK\GMM.Data\obj\Debug\netcoreapp2.2\GMM.Data.pdb
+C:\Users\Kurt\source\repos\HIK\GMM.Data\obj\Debug\netcoreapp2.2\GMM.Data.csprojAssemblyReference.cache

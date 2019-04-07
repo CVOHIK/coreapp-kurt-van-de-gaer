@@ -1,0 +1,32 @@
+﻿@model GMM.Data.Band
+
+@{
+    ViewData["Title"] = "Verwijderen van band";
+}
+
+<h1>Verwijderen van band</h1>
+
+<h3>Weet u zeker dat u deze wil verwijderen?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Omschrijving)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Omschrijving)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KleurCode)
+        </dt>
+        <dd class = "col-sm-10">
+            <div style="width:10px; background-color:@Model.KleurCode.Code">&nbsp;</div>@*@Html.DisplayFor(model => model.KleurCode.Id)*@
+        </dd class>
+    </dl>
+    <br/>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index"><img src="~/pics/return.png" /></a>
+    </form>
+</div>

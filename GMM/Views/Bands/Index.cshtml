@@ -1,0 +1,44 @@
+﻿@model IEnumerable<GMM.Data.Band>
+
+@{
+    ViewData["Title"] = "Overzicht van bands";
+}
+
+<h1>Overzicht van bands</h1>
+<hr/>
+<p>
+    <a asp-action="Create"><img src="~/pics/add.png" /></a>
+</p>
+<br/>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Omschrijving)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KleurCode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Omschrijving)
+            </td>
+            <td>
+                <div style="width:10px; background-color:@item.KleurCode.Code">&nbsp;</div> @*@Html.DisplayFor(modelItem => item.KleurCode.Omschrijving)*@
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><img src="~/pics/edit.png" /></a> |
+                <a asp-action="Details" asp-route-id="@item.Id"><img src="~/pics/search.png" /></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"><img src="~/pics/delete.png" /></a> |
+                <a asp-controller="Boekingen" asp-action="Create" asp-route-bandId="@item.Id"><img src="https://img.icons8.com/windows/32/000000/literature.png"></a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

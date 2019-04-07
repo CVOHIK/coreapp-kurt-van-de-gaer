@@ -1,0 +1,54 @@
+﻿@model GMM.Data.Begeleiding
+
+@{
+    ViewData["Title"] = "Details van begeleider";
+}
+
+<h1>Details van entourage of begeleiders</h1>
+
+<div>
+    <h4>Entourage of begeleider</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Omschrijving)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Omschrijving)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gsm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gsm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WalkieTalkie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WalkieTalkie)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Boeking)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Boeking.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Functie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Functie.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id"><img src="~/pics/edit.png" /></a> |
+    <a asp-action="Index"><img src="~/pics/return.png" /></a>
+</div>

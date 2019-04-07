@@ -1,0 +1,29 @@
+﻿@model GMM.Data.Band
+
+@{
+    ViewData["Title"] = "Details van band";
+}
+
+<h1>Details van band</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Omschrijving)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Omschrijving)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KleurCode)
+        </dt>
+        <dd class = "col-sm-10">
+            <div style="width:10px; background-color:@Model.KleurCode.Code">&nbsp;</div> @*@Html.DisplayFor(model => model.KleurCode.Omschrijving)*@
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id"><img src="~/pics/edit.png" /></a> |
+    <a asp-action="Index"><img src="~/pics/return.png" /></a>
+</div>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<GMM.Data.Podium>
+
+@{
+    ViewData["Title"] = "Overzicht van podia";
+}
+
+<h1>Overzicht van podia</h1>
+
+<p>
+    <a asp-action="Create"><img src="~/pics/add.png" /></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Omschrijving)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Omschrijving)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><img src="~/pics/edit.png" /></a> |
+                <a asp-action="Details" asp-route-id="@item.Id"><img src="~/pics/search.png" /></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"><img src="~/pics/delete.png" /></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

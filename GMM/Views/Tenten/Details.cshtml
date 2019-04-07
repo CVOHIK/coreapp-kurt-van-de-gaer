@@ -1,0 +1,24 @@
+﻿@model GMM.Data.Tent
+
+@{
+    ViewData["Title"] = "Details van tent";
+}
+
+<h1>Details van tent</h1>
+
+<div>
+    <h4>Tent</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Omschrijving)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Omschrijving)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id"><img src="~/pics/edit.png" /></a> |
+    <a asp-action="Index"><img src="~/pics/return.png" /></a>
+</div>

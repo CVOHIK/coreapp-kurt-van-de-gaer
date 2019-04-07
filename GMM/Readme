@@ -1,0 +1,16 @@
+2019-03-15  Data van Excel geïmporteerd in database en script ervoor gemaakt.
+2019-03-17  Aanpassen van Homepage (Index)
+2019-03-18  Viewmodels aangepast
+2019-03-19  Aanpassen van Details page vanuit homepage
+2019-03-20  Aanpassen van Details page vanuit boekingen -> copy van homepage details maar met extentie van Tour- en productie manager
+2019-03-20  Bugfix in vm_boeking. In geval dat er geen Productiemanager was, was er een crash.
+2019-03-20	Aanpassingen (layout) aan boekingen create en edit page
+2019-03-21	Entourage en functies verwijderd uit menu
+2019-03-21	Band schermen aangepast: kleurcodes gebruikt ipv kleurnaam + dropdown aangepast
+2019-03-24	Toevoegen van datum-selectie aan index homepage
+2019-03-24	Toevoegen van datum-selectie aan index boekingen
+2019-03-24	Boekingen index page aangepast door een 'Create' knop aan toe te vogen met link naar de bands index page
+2019-03-24	In boekingen details 'festivalDate' als parameter toegevoegt op return, maar deze werkt niet... omdat het geen POST is...
+2019-03-24	Create scherm boekingen afgewerkt
+2019-04-05	Save op Create en Edit scherm afgewerkt.
+			In Edit-mode gebeurd er géén update, maar een delete/insert

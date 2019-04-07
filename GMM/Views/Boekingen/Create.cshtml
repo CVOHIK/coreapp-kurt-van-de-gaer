@@ -1,0 +1,501 @@
+﻿@*@model GMM.ViewModel.vm_boeking*@
+@model GMM.Data.BoekingModel
+
+@{
+    ViewData["Title"] = "Aanmaken van boeking";
+}
+
+<h1>Aanmaken van boeking</h1>
+
+<hr />
+<form asp-action="Create">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <h4 class="h4-background">Boeking</h4>
+                    <input type="hidden" asp-for="Id" value="@Model.Id" />
+                    <input type="hidden" asp-for="BandId" value="@Model.BandId" />
+                    <input type="hidden" asp-for="BandNaam" value="@Model.BandNaam" />
+                    <input type="hidden" asp-for="KleurCode" value="@Model.KleurCode" />
+                    <div class="row">
+                        <div class="col-5"><h4>@Model.BandNaam<span style="margin-left:10px; width:10px; background-color:@Model.KleurCode;">&nbsp;</span></h4></div>
+                        <div class="col-2">
+                            <h4><input type="date" asp-for="Datum" class="form-control required" value="@Model.Datum.ToString("yyyy-MM-dd")" /></h4>
+                        </div>
+
+                        <div class="col-5">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="BeginUur" class="input-group-text">Aanvang</label>
+                                </div>
+                                <input type="time" asp-for="BeginUur" class="form-control required" value="@Model.BeginUur.ToString("HH:mm")" style="margin-right:5px;" />
+                                <div class="input-group-prepend" style="margin-left:5px;">
+                                    <label asp-for="EindUur" class="input-group-text">Einde</label>
+                                </div>
+                                <input type="time" asp-for="EindUur" class="form-control required" value="@Model.EindUur.ToString("HH:mm")" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-5">&nbsp;</div>
+                        <div class="col-7">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="PodiumId" class="input-group-text" style="width:80px;">Podium</label>
+                                    @*<label asp-for="PodiumId" class="control-label"></label>*@
+                                </div>
+                                <select asp-for="PodiumId" class="form-control required" asp-items="ViewBag.PodiumId"></select>
+                                @*<input type="text" class="form-control" />*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">&nbsp;</div>
+                        <div class="col-7">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="TentId" class="input-group-text" style="width:80px;">Tent</label>
+                                    @*<label asp-for="TentId" class="control-label"></label>*@
+                                </div>
+                                <select asp-for="TentId" class="form-control" asp-items="ViewBag.TentId"></select>
+                                @*<input type="text" class="form-control" />*@
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-4">
+                                    <h6><u>Kleedkamers</u></h6>
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">1</label>
+                                        </div>
+                                        <select asp-for="Kleedkamer1" class="form-control" asp-items="ViewBag.KleedkamerId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label asp-for="KleedkamerBeginUur" class="input-group-text">Van</label>
+                                        </div>
+                                        <input type="time" asp-for="KleedkamerBeginUur" class="form-control" value="@Model.KleedkamerBeginUur.ToString("HH:mm")" />
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">2</label>
+                                        </div>
+                                        <select asp-for="Kleedkamer2" class="form-control" asp-items="ViewBag.KleedkamerId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label asp-for="KleedkamerEindUur" class="input-group-text">Tot</label>
+                                        </div>
+                                        <input type="time" asp-for="KleedkamerEindUur" class="form-control" value="@Model.KleedkamerBeginUur.ToString("HH:mm")" />
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">3</label>
+                                        </div>
+                                        <select asp-for="Kleedkamer3" class="form-control" asp-items="ViewBag.KleedkamerId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">4</label>
+                                        </div>
+                                        <select asp-for="Kleedkamer4" class="form-control" asp-items="ViewBag.KleedkamerId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">5</label>
+                                        </div>
+                                        <select asp-for="Kleedkamer5" class="form-control" asp-items="ViewBag.KleedkamerId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">6</label>
+                                        </div>
+                                        <select asp-for="Kleedkamer6" class="form-control" asp-items="ViewBag.KleedkamerId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-4">
+                                    <h6><u>Productie units</u></h6>
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">1</label>
+                                        </div>
+                                        <select asp-for="ProductieEenheid1" class="form-control" asp-items="ViewBag.ProductieEenheidId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">2</label>
+                                        </div>
+                                        <select asp-for="ProductieEenheid2" class="form-control" asp-items="ViewBag.ProductieEenheidId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">3</label>
+                                        </div>
+                                        <select asp-for="ProductieEenheid3" class="form-control" asp-items="ViewBag.ProductieEenheidId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">4</label>
+                                        </div>
+                                        <select asp-for="ProductieEenheid4" class="form-control" asp-items="ViewBag.ProductieEenheidId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">5</label>
+                                        </div>
+                                        <select asp-for="ProductieEenheid5" class="form-control" asp-items="ViewBag.ProductieEenheidId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">6</label>
+                                        </div>
+                                        <select asp-for="ProductieEenheid6" class="form-control" asp-items="ViewBag.ProductieEenheidId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br /><br />
+
+                <div>
+                    <h4 class="h4-background">Entourage - begeleiding</h4>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label><b>Tourmanager</b></label>
+                            <input type="text" asp-for="TourmanagerNaam" class="form-control" placeholder="Naam" value="@Model.TourmanagerNaam" />
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><img src="https://img.icons8.com/windows/32/000000/phone-not-being-used.png" class="icon"></span>
+                                </div>
+                                <input type="tel" asp-for="TourmanagerGsm" class="form-control" placeholder="Telefoon" value="@Model.TourmanagerGsm" />
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><img src="https://img.icons8.com/windows/32/000000/new-post.png" class="icon"></span>
+                                </div>
+                                <input type="email" asp-for="TourmanagerEmail" class="form-control" placeholder="Email" value="@Model.TourmanagerEmail" />
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><img src="https://img.icons8.com/windows/32/000000/walkie-talkie-radio.png" class="icon"></span>
+                                </div>
+                                <input type="checkbox" asp-for="TourmanagerWalkieTalkie" class="form-control" checked="@Model.TourmanagerWalkieTalkie" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <label><b>Productie manager</b></label>
+                            <input type="text" asp-for="ProductieManagerNaam" class="form-control" placeholder="Naam" value="@Model.ProductieManagerNaam" />
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><img src="https://img.icons8.com/windows/32/000000/phone-not-being-used.png" class="icon"></span>
+                                </div>
+                                <input type="tel" asp-for="ProductieManagerGsm" class="form-control" placeholder="Telefoon" value="@Model.ProductieManagerGsm" />
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><img src="https://img.icons8.com/windows/32/000000/new-post.png" class="icon"></span>
+                                </div>
+                                <input type="email" asp-for="ProductieManagerEmail" class="form-control" placeholder="Email" value="@Model.ProductieManagerEmail" />
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><img src="https://img.icons8.com/windows/32/000000/walkie-talkie-radio.png" class="icon"></span>
+                                </div>
+                                <input type="checkbox" asp-for="ProductieManagerWalkieTalkie" class="form-control" checked="@Model.ProductieManagerWalkieTalkie" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <label><b>Begeleiders</b></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">1</span>
+                                </div>
+                                <select asp-for="Begeleider1" class="form-control" asp-items="ViewBag.BegeleiderId"></select>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">2</span>
+                                </div>
+                                <select asp-for="Begeleider2" class="form-control" asp-items="ViewBag.BegeleiderId"></select>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">3</span>
+                                </div>
+                                <select asp-for="Begeleider3" class="form-control" asp-items="ViewBag.BegeleiderId"></select>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">4</span>
+                                </div>
+                                <select asp-for="Begeleider4" class="form-control" asp-items="ViewBag.BegeleiderId"></select>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">5</span>
+                                </div>
+                                <select asp-for="Begeleider5" class="form-control" asp-items="ViewBag.BegeleiderId"></select>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">6</span>
+                                </div>
+                                <select asp-for="Begeleider6" class="form-control" asp-items="ViewBag.BegeleiderId"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <h4 class="h4-background">Voorraad - Secretariaat - Voorzieningen</h4>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="VoorzieningenWasserij" class="input-group-text" style="width:140px;">Wasserij</label>
+                                </div>
+                                <input type="checkbox" asp-for="VoorzieningenWasserij" class="form-control" checked="@Model.VoorzieningenWasserij" />
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="VoorzieningenBusStock" class="input-group-text" style="width:140px;">BusStock</label>
+                                </div>
+                                <input type="number" asp-for="VoorzieningenBusStock" class="form-control" value="@Model.VoorzieningenBusStock" />
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="VoorzieningenRunner" class="input-group-text" style="width:140px;">Runner</label>
+                                </div>
+                                <input type="number" asp-for="VoorzieningenRunner" class="form-control" value="@Model.VoorzieningenRunner" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="VoorzieningenArts" class="input-group-text" style="width:140px;">Arts</label>
+                                </div>
+                                <input type="text" asp-for="VoorzieningenArts" class="form-control" value="@Model.VoorzieningenArts" />
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="VoorzieningenZuurstof" class="input-group-text" style="width:140px;">Zuurstof</label>
+                                </div>
+                                <input type="number" asp-for="VoorzieningenZuurstof" class="form-control" value="@Model.VoorzieningenZuurstof" />
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="VoorzieningenKinesist" class="input-group-text" style="width:140px;">Kinesist</label>
+                                </div>
+                                <input type="checkbox" asp-for="VoorzieningenKinesist" class="form-control" checked="@Model.VoorzieningenKinesist" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="VoorzieningenCoolersBand" class="input-group-text" style="width:140px;">Coolers Band</label>
+                                </div>
+                                <input type="number" asp-for="VoorzieningenCoolersBand" class="form-control" value="@Model.VoorzieningenCoolersBand" />
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="VoorzieningenCoolersGmm" class="input-group-text" style="width:140px;">Coolers GMM</label>
+                                </div>
+                                <input type="number" asp-for="VoorzieningenCoolersGmm" class="form-control" value="@Model.VoorzieningenCoolersGmm" />
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="VoorzieningenV110" class="input-group-text" style="width:140px;">110V</label>
+                                </div>
+                                <input type="number" asp-for="VoorzieningenV110" class="form-control" value="@Model.VoorzieningenV110" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <h5><u>Opmerkingen</u></h5>
+                    <div class="input-group" >
+                        @*<input type="text" asp-for="VoorzieningCommentaren.Omschrijving" class="form-control" value="@Model.VoorzieningCommentaren.Omschrijving" />*@
+                        <textarea rows="10" asp-for="VoorzieningenCommentaar" class="form-control" value="@Model.VoorzieningenCommentaar"></textarea>
+                    </div>
+                </div>
+
+                <br />
+
+                <div>
+                    <h4 class="h4-background">Catering</h4>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="CateringAfterShow" class="input-group-text" style="width:140px;">After show</label>
+                                </div>
+                                <input type="checkbox" asp-for="CateringAfterShow" class="form-control" checked="@Model.CateringAfterShow" />
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="CateringSpecial" class="input-group-text" style="width:140px;">Special</label>
+                                </div>
+                                <input type="checkbox" asp-for="CateringSpecial" class="form-control" checked="@Model.CateringSpecial" />
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label asp-for="CateringTakeAwayFood" class="input-group-text" style="width:140px;">Take away food</label>
+                                </div>
+                                <input type="checkbox" asp-for="CateringTakeAwayFood" class="form-control" checked="@Model.CateringTakeAwayFood" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <input type="text" asp-for="CateringOptie1" class="form-control" value="@Model.CateringOptie1" placeholder="Optie1" />
+                                </div>
+                                <input type="text" asp-for="CateringOptie1Waarde" class="form-control" value="@Model.CateringOptie1Waarde" placeholder="Waarde optie1" />
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <input type="text" asp-for="CateringOptie2" class="form-control" value="@Model.CateringOptie2" placeholder="Optie2" />
+                                </div>
+                                <input type="text" asp-for="CateringOptie2Waarde" class="form-control" value="@Model.CateringOptie2Waarde" placeholder="Waarde optie2" />
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                &nbsp;
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <h5><u>Opmerkingen</u></h5>
+                    <div class="input-group" >
+                        <textarea rows = "10" asp-for="CateringCommentaar" class="form-control" value="@Model.CateringCommentaar" ></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="form-group">
+        <input type="submit" value="Opslaan" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index"><img src="~/pics/return.png" /></a>
+</div>
+

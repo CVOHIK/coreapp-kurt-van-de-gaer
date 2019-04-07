@@ -1,0 +1,192 @@
+﻿@model GMM.Data.BoekingModel
+
+@{
+    ViewData["Title"] = "Details van boeking";
+}
+
+<h1>Details van boeking</h1>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <td><h2>Bandnaam</h2></td>
+            <td><h2>@Model.BandNaam&nbsp;<span style="width:10px; background-color:@Model.KleurCode">&nbsp;</span></h2></td>
+        </tr>
+        <tr>
+            <td><h3>Podium</h3></td>
+            <td><h3>@Model.PodiumNaam</h3></td>
+        </tr>
+        <tr>
+            <td>Datum</td>
+            <td>
+                @Html.DisplayFor(m => m.Datum) <span>&nbsp;&nbsp;&nbsp;&nbsp;Van: </span>@Html.DisplayFor(m => m.BeginUur)<span>&nbsp;&nbsp;&nbsp;&nbsp;Tot: </span>@Html.DisplayFor(m => m.EindUur)
+            </td>
+        </tr>
+        <tr>
+            <td>Kleedkamers</td>
+            <td>@Model.BoekingKleedkamersString</td>
+        </tr>
+        <tr>
+            <td>Kleedkamers gereserveerd</td>
+            <td><span>Van: </span>@Html.DisplayFor(m => m.KleedkamerBeginUur)<span>&nbsp;&nbsp;&nbsp;&nbsp;Tot: </span>@Html.DisplayFor(m => m.KleedkamerEindUur)</td>
+        </tr>
+        <tr>
+            <td>Productie eenheden</td>
+            <td>@Model.BoekingProductieEenhedenString</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+<hr />
+<br />
+
+<h2>Entourage - begeleiding</h2>
+<div class="row">
+    <div class="col-lg-4">
+        <label><b>Tourmanager</b></label>
+        @Model.TourmanagerNaam
+        <div class="input-group">
+            <img src="https://img.icons8.com/windows/32/000000/phone-not-being-used.png" class="icon">
+            @Model.TourmanagerGsm
+        </div>
+        <div class="input-group">
+            <img src="https://img.icons8.com/windows/32/000000/new-post.png" class="icon">
+            @Model.TourmanagerEmail
+        </div>
+        <div class="input-group">
+            <img src="https://img.icons8.com/windows/32/000000/walkie-talkie-radio.png" class="icon">
+            <input type="checkbox" class="form-control" checked=@Model.TourmanagerWalkieTalkie />
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label><b>Productie manager</b></label>
+        @Model.ProductieManagerNaam
+        <div class="input-group">
+            <img src="https://img.icons8.com/windows/32/000000/phone-not-being-used.png" class="icon">
+            @Model.ProductieManagerGsm
+        </div>
+        <div class="input-group">
+            <img src="https://img.icons8.com/windows/32/000000/new-post.png" class="icon">
+            @Model.ProductieManagerEmail
+        </div>
+        <div class="input-group">
+            <img src="https://img.icons8.com/windows/32/000000/walkie-talkie-radio.png" class="icon">
+            <input type="checkbox" class="form-control" checked=@Model.ProductieManagerWalkieTalkie />
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label><b>Begeleiders</b></label>
+        <ul>
+            @if (Model.Begeleider1 != null)
+            {
+                <li>@Model.Begeleider1 </li>
+            }
+            @if (Model.Begeleider2 != null)
+            {
+                <li>@Model.Begeleider2 </li>
+            }
+            @if (Model.Begeleider3 != null)
+            {
+                <li>@Model.Begeleider3 </li>
+            }
+            @if (Model.Begeleider4 != null)
+            {
+                <li>@Model.Begeleider4 </li>
+            }
+            @if (Model.Begeleider5 != null)
+            {
+                <li>@Model.Begeleider5 </li>
+            }
+            @if (Model.Begeleider6 != null)
+            {
+                <li>@Model.Begeleider6 </li>
+            }
+        </ul>
+    </div>
+</div>
+
+<br />
+<hr />
+<br />
+
+<h2>Catering</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                After show: @if (Model.CateringAfterShow)
+                {<span>x</span>}
+                else
+                {<span>-</span>}
+            </td>
+            <td>
+                Special @if (Model.CateringSpecial)
+                {<span>x</span>}
+                else
+                {<span>-</span>}
+            </td>
+            <td>
+                Take away food: @if (Model.CateringTakeAwayFood)
+                {<span>x</span>}
+                else
+                {<span>-</span>}
+            </td>
+            <td>@Model.CateringOptie1 <span>@Model.CateringOptie1Waarde</span></td>
+            <td>@Model.CateringOptie2 <span>@Model.CateringOptie2Waarde</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h5><u>Opmerkingen</u></h5>
+<p>
+    <span style="white-space: pre-wrap">@Model.CateringCommentaar</span>
+</p>
+
+<br />
+<hr />
+<br />
+
+<h2>Voorzieningen</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                Wasserij: @if (Model.VoorzieningenWasserij)
+                {<span>x</span>}
+                else
+                {<span>-</span>}
+            </td>
+            <td>Busstock: <span>@Model.VoorzieningenBusStock</span></td>
+            <td>Runner: <span>@Model.VoorzieningenRunner</span></td>
+            <td>Arts: <span>@Model.VoorzieningenArts</span></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Zuurstof: <span>@Model.VoorzieningenZuurstof</span></td>
+            <td>
+                Kinesist: @if (Model.VoorzieningenKinesist)
+                {<span>x</span>}
+                else
+                {<span>-</span>}
+            </td>
+            <td>Coolers band: <span>@Model.VoorzieningenCoolersBand</span></td>
+            <td>Coolers GMM: <span>@Model.VoorzieningenCoolersGmm</span></td>
+            <td>V110: <span>@Model.VoorzieningenV110</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h5><u>Opmerkingen</u></h5>
+<p>
+    <span style="white-space: pre-wrap">@Model.VoorzieningenCommentaar</span>
+</p>
+
+<br />
+<hr />
+<br />
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id"><img src="~/pics/edit.png" /></a> |
+    <a asp-action="Index" asp-route-festivalDate="@Model.Datum"><img src="~/pics/return.png" /></a>
+</div>
